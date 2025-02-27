@@ -1174,7 +1174,8 @@ if (tapeItem.typecode) return TypeInitialisers[schema][tapeItem.typecode](tapeIt
 function Labelise(tapeItem:any): any {
 if ((tapeItem ?? undefined) === undefined || tapeItem instanceof Handle || tapeItem.label) return tapeItem;
 if (Array.isArray(tapeItem)) return tapeItem.map((p)=>Labelise(p));
-return {value:tapeItem.value,valueType:tapeItem.type,type:2,label:tapeItem.name};
+const _valueName = tapeItem.type === 4 ? "internalValue" : "value";
+return {[_valueName]:tapeItem[_valueName],valueType:tapeItem.type,type:2,label:tapeItem.name};
 }
 // supported ifc schemas
 export enum Schemas {
@@ -3875,32 +3876,52 @@ export namespace IFC2X3 {
 export class IfcAbsorbedDoseMeasure {
 type: number=4;
 name: string='IFCABSORBEDDOSEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcAccelerationMeasure {
 type: number=4;
 name: string='IFCACCELERATIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcAmountOfSubstanceMeasure {
 type: number=4;
 name: string='IFCAMOUNTOFSUBSTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcAngularVelocityMeasure {
 type: number=4;
 name: string='IFCANGULARVELOCITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcAreaMeasure {
 type: number=4;
 name: string='IFCAREAMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcBoolean {
 type: number=3;
@@ -3918,32 +3939,52 @@ export class IfcCompoundPlaneAngleMeasure { type: number=10; constructor(public 
 export class IfcContextDependentMeasure {
 type: number=4;
 name: string='IFCCONTEXTDEPENDENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcCountMeasure {
 type: number=4;
 name: string='IFCCOUNTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcCurvatureMeasure {
 type: number=4;
 name: string='IFCCURVATUREMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcDayInMonthNumber {
 type: number=10;
 name: string='IFCDAYINMONTHNUMBER';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcDaylightSavingHour {
 type: number=10;
 name: string='IFCDAYLIGHTSAVINGHOUR';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcDescriptiveMeasure {
 type: number=1;
@@ -3953,62 +3994,102 @@ constructor(public value: string) {}
 export class IfcDimensionCount {
 type: number=10;
 name: string='IFCDIMENSIONCOUNT';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcDoseEquivalentMeasure {
 type: number=4;
 name: string='IFCDOSEEQUIVALENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcDynamicViscosityMeasure {
 type: number=4;
 name: string='IFCDYNAMICVISCOSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricCapacitanceMeasure {
 type: number=4;
 name: string='IFCELECTRICCAPACITANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricChargeMeasure {
 type: number=4;
 name: string='IFCELECTRICCHARGEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricConductanceMeasure {
 type: number=4;
 name: string='IFCELECTRICCONDUCTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricCurrentMeasure {
 type: number=4;
 name: string='IFCELECTRICCURRENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricResistanceMeasure {
 type: number=4;
 name: string='IFCELECTRICRESISTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricVoltageMeasure {
 type: number=4;
 name: string='IFCELECTRICVOLTAGEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcEnergyMeasure {
 type: number=4;
 name: string='IFCENERGYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcFontStyle {
 type: number=1;
@@ -4028,14 +4109,22 @@ constructor(public value: string) {}
 export class IfcForceMeasure {
 type: number=4;
 name: string='IFCFORCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcFrequencyMeasure {
 type: number=4;
 name: string='IFCFREQUENCYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcGloballyUniqueId {
 type: number=1;
@@ -4045,20 +4134,32 @@ constructor(public value: string) {}
 export class IfcHeatFluxDensityMeasure {
 type: number=4;
 name: string='IFCHEATFLUXDENSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcHeatingValueMeasure {
 type: number=4;
 name: string='IFCHEATINGVALUEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcHourInDay {
 type: number=10;
 name: string='IFCHOURINDAY';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcIdentifier {
 type: number=1;
@@ -4068,44 +4169,72 @@ constructor(public value: string) {}
 export class IfcIlluminanceMeasure {
 type: number=4;
 name: string='IFCILLUMINANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcInductanceMeasure {
 type: number=4;
 name: string='IFCINDUCTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcInteger {
 type: number=10;
 name: string='IFCINTEGER';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcIntegerCountRateMeasure {
 type: number=10;
 name: string='IFCINTEGERCOUNTRATEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcIonConcentrationMeasure {
 type: number=4;
 name: string='IFCIONCONCENTRATIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcIsothermalMoistureCapacityMeasure {
 type: number=4;
 name: string='IFCISOTHERMALMOISTURECAPACITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcKinematicViscosityMeasure {
 type: number=4;
 name: string='IFCKINEMATICVISCOSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLabel {
 type: number=1;
@@ -4115,32 +4244,52 @@ constructor(public value: string) {}
 export class IfcLengthMeasure {
 type: number=4;
 name: string='IFCLENGTHMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLinearForceMeasure {
 type: number=4;
 name: string='IFCLINEARFORCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLinearMomentMeasure {
 type: number=4;
 name: string='IFCLINEARMOMENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLinearStiffnessMeasure {
 type: number=4;
 name: string='IFCLINEARSTIFFNESSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLinearVelocityMeasure {
 type: number=4;
 name: string='IFCLINEARVELOCITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLogical {
 type: number=3;
@@ -4151,176 +4300,292 @@ constructor(v: any) { this.value = v ; }
 export class IfcLuminousFluxMeasure {
 type: number=4;
 name: string='IFCLUMINOUSFLUXMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLuminousIntensityDistributionMeasure {
 type: number=4;
 name: string='IFCLUMINOUSINTENSITYDISTRIBUTIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLuminousIntensityMeasure {
 type: number=4;
 name: string='IFCLUMINOUSINTENSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMagneticFluxDensityMeasure {
 type: number=4;
 name: string='IFCMAGNETICFLUXDENSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMagneticFluxMeasure {
 type: number=4;
 name: string='IFCMAGNETICFLUXMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMassDensityMeasure {
 type: number=4;
 name: string='IFCMASSDENSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMassFlowRateMeasure {
 type: number=4;
 name: string='IFCMASSFLOWRATEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMassMeasure {
 type: number=4;
 name: string='IFCMASSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMassPerLengthMeasure {
 type: number=4;
 name: string='IFCMASSPERLENGTHMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMinuteInHour {
 type: number=10;
 name: string='IFCMINUTEINHOUR';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcModulusOfElasticityMeasure {
 type: number=4;
 name: string='IFCMODULUSOFELASTICITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcModulusOfLinearSubgradeReactionMeasure {
 type: number=4;
 name: string='IFCMODULUSOFLINEARSUBGRADEREACTIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcModulusOfRotationalSubgradeReactionMeasure {
 type: number=4;
 name: string='IFCMODULUSOFROTATIONALSUBGRADEREACTIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcModulusOfSubgradeReactionMeasure {
 type: number=4;
 name: string='IFCMODULUSOFSUBGRADEREACTIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMoistureDiffusivityMeasure {
 type: number=4;
 name: string='IFCMOISTUREDIFFUSIVITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMolecularWeightMeasure {
 type: number=4;
 name: string='IFCMOLECULARWEIGHTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMomentOfInertiaMeasure {
 type: number=4;
 name: string='IFCMOMENTOFINERTIAMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMonetaryMeasure {
 type: number=4;
 name: string='IFCMONETARYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMonthInYearNumber {
 type: number=10;
 name: string='IFCMONTHINYEARNUMBER';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcNormalisedRatioMeasure {
 type: number=4;
 name: string='IFCNORMALISEDRATIOMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcNumericMeasure {
 type: number=4;
 name: string='IFCNUMERICMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPHMeasure {
 type: number=4;
 name: string='IFCPHMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcParameterValue {
 type: number=4;
 name: string='IFCPARAMETERVALUE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPlanarForceMeasure {
 type: number=4;
 name: string='IFCPLANARFORCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPlaneAngleMeasure {
 type: number=4;
 name: string='IFCPLANEANGLEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPositiveLengthMeasure {
 type: number=4;
 name: string='IFCPOSITIVELENGTHMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPositivePlaneAngleMeasure {
 type: number=4;
 name: string='IFCPOSITIVEPLANEANGLEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPositiveRatioMeasure {
 type: number=4;
 name: string='IFCPOSITIVERATIOMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPowerMeasure {
 type: number=4;
 name: string='IFCPOWERMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPresentableText {
 type: number=1;
@@ -4330,110 +4595,182 @@ constructor(public value: string) {}
 export class IfcPressureMeasure {
 type: number=4;
 name: string='IFCPRESSUREMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcRadioActivityMeasure {
 type: number=4;
 name: string='IFCRADIOACTIVITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcRatioMeasure {
 type: number=4;
 name: string='IFCRATIOMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcReal {
 type: number=4;
 name: string='IFCREAL';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcRotationalFrequencyMeasure {
 type: number=4;
 name: string='IFCROTATIONALFREQUENCYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcRotationalMassMeasure {
 type: number=4;
 name: string='IFCROTATIONALMASSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcRotationalStiffnessMeasure {
 type: number=4;
 name: string='IFCROTATIONALSTIFFNESSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSecondInMinute {
 type: number=4;
 name: string='IFCSECONDINMINUTE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSectionModulusMeasure {
 type: number=4;
 name: string='IFCSECTIONMODULUSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSectionalAreaIntegralMeasure {
 type: number=4;
 name: string='IFCSECTIONALAREAINTEGRALMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcShearModulusMeasure {
 type: number=4;
 name: string='IFCSHEARMODULUSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSolidAngleMeasure {
 type: number=4;
 name: string='IFCSOLIDANGLEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSoundPowerMeasure {
 type: number=4;
 name: string='IFCSOUNDPOWERMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSoundPressureMeasure {
 type: number=4;
 name: string='IFCSOUNDPRESSUREMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSpecificHeatCapacityMeasure {
 type: number=4;
 name: string='IFCSPECIFICHEATCAPACITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSpecularExponent {
 type: number=4;
 name: string='IFCSPECULAREXPONENT';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSpecularRoughness {
 type: number=4;
 name: string='IFCSPECULARROUGHNESS';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcTemperatureGradientMeasure {
 type: number=4;
 name: string='IFCTEMPERATUREGRADIENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcText {
 type: number=1;
@@ -4463,92 +4800,152 @@ constructor(public value: string) {}
 export class IfcThermalAdmittanceMeasure {
 type: number=4;
 name: string='IFCTHERMALADMITTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcThermalConductivityMeasure {
 type: number=4;
 name: string='IFCTHERMALCONDUCTIVITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcThermalExpansionCoefficientMeasure {
 type: number=4;
 name: string='IFCTHERMALEXPANSIONCOEFFICIENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcThermalResistanceMeasure {
 type: number=4;
 name: string='IFCTHERMALRESISTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcThermalTransmittanceMeasure {
 type: number=4;
 name: string='IFCTHERMALTRANSMITTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcThermodynamicTemperatureMeasure {
 type: number=4;
 name: string='IFCTHERMODYNAMICTEMPERATUREMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcTimeMeasure {
 type: number=4;
 name: string='IFCTIMEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcTimeStamp {
 type: number=10;
 name: string='IFCTIMESTAMP';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcTorqueMeasure {
 type: number=4;
 name: string='IFCTORQUEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcVaporPermeabilityMeasure {
 type: number=4;
 name: string='IFCVAPORPERMEABILITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcVolumeMeasure {
 type: number=4;
 name: string='IFCVOLUMEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcVolumetricFlowRateMeasure {
 type: number=4;
 name: string='IFCVOLUMETRICFLOWRATEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcWarpingConstantMeasure {
 type: number=4;
 name: string='IFCWARPINGCONSTANTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcWarpingMomentMeasure {
 type: number=4;
 name: string='IFCWARPINGMOMENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcYearNumber {
 type: number=10;
 name: string='IFCYEARNUMBER';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcActionSourceTypeEnum {static DEAD_LOAD_G : any =  { type:3, value:'DEAD_LOAD_G'}; static COMPLETION_G1 : any =  { type:3, value:'COMPLETION_G1'}; static LIVE_LOAD_Q : any =  { type:3, value:'LIVE_LOAD_Q'}; static SNOW_S : any =  { type:3, value:'SNOW_S'}; static WIND_W : any =  { type:3, value:'WIND_W'}; static PRESTRESSING_P : any =  { type:3, value:'PRESTRESSING_P'}; static SETTLEMENT_U : any =  { type:3, value:'SETTLEMENT_U'}; static TEMPERATURE_T : any =  { type:3, value:'TEMPERATURE_T'}; static EARTHQUAKE_E : any =  { type:3, value:'EARTHQUAKE_E'}; static FIRE : any =  { type:3, value:'FIRE'}; static IMPULSE : any =  { type:3, value:'IMPULSE'}; static IMPACT : any =  { type:3, value:'IMPACT'}; static TRANSPORT : any =  { type:3, value:'TRANSPORT'}; static ERECTION : any =  { type:3, value:'ERECTION'}; static PROPPING : any =  { type:3, value:'PROPPING'}; static SYSTEM_IMPERFECTION : any =  { type:3, value:'SYSTEM_IMPERFECTION'}; static SHRINKAGE : any =  { type:3, value:'SHRINKAGE'}; static CREEP : any =  { type:3, value:'CREEP'}; static LACK_OF_FIT : any =  { type:3, value:'LACK_OF_FIT'}; static BUOYANCY : any =  { type:3, value:'BUOYANCY'}; static ICE : any =  { type:3, value:'ICE'}; static CURRENT : any =  { type:3, value:'CURRENT'}; static WAVE : any =  { type:3, value:'WAVE'}; static RAIN : any =  { type:3, value:'RAIN'}; static BRAKES : any =  { type:3, value:'BRAKES'}; static USERDEFINED : any =  { type:3, value:'USERDEFINED'}; static NOTDEFINED : any =  { type:3, value:'NOTDEFINED'}; }
 export class IfcActionTypeEnum {static PERMANENT_G : any =  { type:3, value:'PERMANENT_G'}; static VARIABLE_Q : any =  { type:3, value:'VARIABLE_Q'}; static EXTRAORDINARY_A : any =  { type:3, value:'EXTRAORDINARY_A'}; static USERDEFINED : any =  { type:3, value:'USERDEFINED'}; static NOTDEFINED : any =  { type:3, value:'NOTDEFINED'}; }
@@ -12750,45 +13147,73 @@ export namespace IFC4 {
 export class IfcAbsorbedDoseMeasure {
 type: number=4;
 name: string='IFCABSORBEDDOSEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcAccelerationMeasure {
 type: number=4;
 name: string='IFCACCELERATIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcAmountOfSubstanceMeasure {
 type: number=4;
 name: string='IFCAMOUNTOFSUBSTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcAngularVelocityMeasure {
 type: number=4;
 name: string='IFCANGULARVELOCITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcArcIndex { type: number=5; constructor(public value: Array<IfcPositiveInteger>) {} };
 export class IfcAreaDensityMeasure {
 type: number=4;
 name: string='IFCAREADENSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcAreaMeasure {
 type: number=4;
 name: string='IFCAREAMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcBinary {
 type: number=4;
 name: string='IFCBINARY';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcBoolean {
 type: number=3;
@@ -12804,28 +13229,44 @@ constructor(public value: string) {}
 export class IfcCardinalPointReference {
 type: number=10;
 name: string='IFCCARDINALPOINTREFERENCE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcComplexNumber { type: number=4; constructor(public value: Array<number>) {} };
 export class IfcCompoundPlaneAngleMeasure { type: number=10; constructor(public value: Array<number>) {} };
 export class IfcContextDependentMeasure {
 type: number=4;
 name: string='IFCCONTEXTDEPENDENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcCountMeasure {
 type: number=4;
 name: string='IFCCOUNTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcCurvatureMeasure {
 type: number=4;
 name: string='IFCCURVATUREMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcDate {
 type: number=1;
@@ -12840,14 +13281,22 @@ constructor(public value: string) {}
 export class IfcDayInMonthNumber {
 type: number=10;
 name: string='IFCDAYINMONTHNUMBER';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcDayInWeekNumber {
 type: number=10;
 name: string='IFCDAYINWEEKNUMBER';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcDescriptiveMeasure {
 type: number=1;
@@ -12857,14 +13306,22 @@ constructor(public value: string) {}
 export class IfcDimensionCount {
 type: number=10;
 name: string='IFCDIMENSIONCOUNT';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcDoseEquivalentMeasure {
 type: number=4;
 name: string='IFCDOSEEQUIVALENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcDuration {
 type: number=1;
@@ -12874,50 +13331,82 @@ constructor(public value: string) {}
 export class IfcDynamicViscosityMeasure {
 type: number=4;
 name: string='IFCDYNAMICVISCOSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricCapacitanceMeasure {
 type: number=4;
 name: string='IFCELECTRICCAPACITANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricChargeMeasure {
 type: number=4;
 name: string='IFCELECTRICCHARGEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricConductanceMeasure {
 type: number=4;
 name: string='IFCELECTRICCONDUCTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricCurrentMeasure {
 type: number=4;
 name: string='IFCELECTRICCURRENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricResistanceMeasure {
 type: number=4;
 name: string='IFCELECTRICRESISTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricVoltageMeasure {
 type: number=4;
 name: string='IFCELECTRICVOLTAGEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcEnergyMeasure {
 type: number=4;
 name: string='IFCENERGYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcFontStyle {
 type: number=1;
@@ -12937,14 +13426,22 @@ constructor(public value: string) {}
 export class IfcForceMeasure {
 type: number=4;
 name: string='IFCFORCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcFrequencyMeasure {
 type: number=4;
 name: string='IFCFREQUENCYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcGloballyUniqueId {
 type: number=1;
@@ -12954,14 +13451,22 @@ constructor(public value: string) {}
 export class IfcHeatFluxDensityMeasure {
 type: number=4;
 name: string='IFCHEATFLUXDENSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcHeatingValueMeasure {
 type: number=4;
 name: string='IFCHEATINGVALUEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcIdentifier {
 type: number=1;
@@ -12971,44 +13476,72 @@ constructor(public value: string) {}
 export class IfcIlluminanceMeasure {
 type: number=4;
 name: string='IFCILLUMINANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcInductanceMeasure {
 type: number=4;
 name: string='IFCINDUCTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcInteger {
 type: number=10;
 name: string='IFCINTEGER';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcIntegerCountRateMeasure {
 type: number=10;
 name: string='IFCINTEGERCOUNTRATEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcIonConcentrationMeasure {
 type: number=4;
 name: string='IFCIONCONCENTRATIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcIsothermalMoistureCapacityMeasure {
 type: number=4;
 name: string='IFCISOTHERMALMOISTURECAPACITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcKinematicViscosityMeasure {
 type: number=4;
 name: string='IFCKINEMATICVISCOSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLabel {
 type: number=1;
@@ -13023,33 +13556,53 @@ constructor(public value: string) {}
 export class IfcLengthMeasure {
 type: number=4;
 name: string='IFCLENGTHMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLineIndex { type: number=5; constructor(public value: Array<IfcPositiveInteger>) {} };
 export class IfcLinearForceMeasure {
 type: number=4;
 name: string='IFCLINEARFORCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLinearMomentMeasure {
 type: number=4;
 name: string='IFCLINEARMOMENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLinearStiffnessMeasure {
 type: number=4;
 name: string='IFCLINEARSTIFFNESSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLinearVelocityMeasure {
 type: number=4;
 name: string='IFCLINEARVELOCITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLogical {
 type: number=3;
@@ -13060,182 +13613,302 @@ constructor(v: any) { this.value = v ; }
 export class IfcLuminousFluxMeasure {
 type: number=4;
 name: string='IFCLUMINOUSFLUXMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLuminousIntensityDistributionMeasure {
 type: number=4;
 name: string='IFCLUMINOUSINTENSITYDISTRIBUTIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLuminousIntensityMeasure {
 type: number=4;
 name: string='IFCLUMINOUSINTENSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMagneticFluxDensityMeasure {
 type: number=4;
 name: string='IFCMAGNETICFLUXDENSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMagneticFluxMeasure {
 type: number=4;
 name: string='IFCMAGNETICFLUXMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMassDensityMeasure {
 type: number=4;
 name: string='IFCMASSDENSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMassFlowRateMeasure {
 type: number=4;
 name: string='IFCMASSFLOWRATEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMassMeasure {
 type: number=4;
 name: string='IFCMASSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMassPerLengthMeasure {
 type: number=4;
 name: string='IFCMASSPERLENGTHMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcModulusOfElasticityMeasure {
 type: number=4;
 name: string='IFCMODULUSOFELASTICITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcModulusOfLinearSubgradeReactionMeasure {
 type: number=4;
 name: string='IFCMODULUSOFLINEARSUBGRADEREACTIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcModulusOfRotationalSubgradeReactionMeasure {
 type: number=4;
 name: string='IFCMODULUSOFROTATIONALSUBGRADEREACTIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcModulusOfSubgradeReactionMeasure {
 type: number=4;
 name: string='IFCMODULUSOFSUBGRADEREACTIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMoistureDiffusivityMeasure {
 type: number=4;
 name: string='IFCMOISTUREDIFFUSIVITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMolecularWeightMeasure {
 type: number=4;
 name: string='IFCMOLECULARWEIGHTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMomentOfInertiaMeasure {
 type: number=4;
 name: string='IFCMOMENTOFINERTIAMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMonetaryMeasure {
 type: number=4;
 name: string='IFCMONETARYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMonthInYearNumber {
 type: number=10;
 name: string='IFCMONTHINYEARNUMBER';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcNonNegativeLengthMeasure {
 type: number=4;
 name: string='IFCNONNEGATIVELENGTHMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcNormalisedRatioMeasure {
 type: number=4;
 name: string='IFCNORMALISEDRATIOMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcNumericMeasure {
 type: number=4;
 name: string='IFCNUMERICMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPHMeasure {
 type: number=4;
 name: string='IFCPHMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcParameterValue {
 type: number=4;
 name: string='IFCPARAMETERVALUE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPlanarForceMeasure {
 type: number=4;
 name: string='IFCPLANARFORCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPlaneAngleMeasure {
 type: number=4;
 name: string='IFCPLANEANGLEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPositiveInteger {
 type: number=10;
 name: string='IFCPOSITIVEINTEGER';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPositiveLengthMeasure {
 type: number=4;
 name: string='IFCPOSITIVELENGTHMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPositivePlaneAngleMeasure {
 type: number=4;
 name: string='IFCPOSITIVEPLANEANGLEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPositiveRatioMeasure {
 type: number=4;
 name: string='IFCPOSITIVERATIOMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPowerMeasure {
 type: number=4;
 name: string='IFCPOWERMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPresentableText {
 type: number=1;
@@ -13245,123 +13918,203 @@ constructor(public value: string) {}
 export class IfcPressureMeasure {
 type: number=4;
 name: string='IFCPRESSUREMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPropertySetDefinitionSet { type: number=5; constructor(public value: Array<IfcPropertySetDefinition>) {} };
 export class IfcRadioActivityMeasure {
 type: number=4;
 name: string='IFCRADIOACTIVITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcRatioMeasure {
 type: number=4;
 name: string='IFCRATIOMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcReal {
 type: number=4;
 name: string='IFCREAL';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcRotationalFrequencyMeasure {
 type: number=4;
 name: string='IFCROTATIONALFREQUENCYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcRotationalMassMeasure {
 type: number=4;
 name: string='IFCROTATIONALMASSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcRotationalStiffnessMeasure {
 type: number=4;
 name: string='IFCROTATIONALSTIFFNESSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSectionModulusMeasure {
 type: number=4;
 name: string='IFCSECTIONMODULUSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSectionalAreaIntegralMeasure {
 type: number=4;
 name: string='IFCSECTIONALAREAINTEGRALMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcShearModulusMeasure {
 type: number=4;
 name: string='IFCSHEARMODULUSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSolidAngleMeasure {
 type: number=4;
 name: string='IFCSOLIDANGLEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSoundPowerLevelMeasure {
 type: number=4;
 name: string='IFCSOUNDPOWERLEVELMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSoundPowerMeasure {
 type: number=4;
 name: string='IFCSOUNDPOWERMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSoundPressureLevelMeasure {
 type: number=4;
 name: string='IFCSOUNDPRESSURELEVELMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSoundPressureMeasure {
 type: number=4;
 name: string='IFCSOUNDPRESSUREMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSpecificHeatCapacityMeasure {
 type: number=4;
 name: string='IFCSPECIFICHEATCAPACITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSpecularExponent {
 type: number=4;
 name: string='IFCSPECULAREXPONENT';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSpecularRoughness {
 type: number=4;
 name: string='IFCSPECULARROUGHNESS';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcTemperatureGradientMeasure {
 type: number=4;
 name: string='IFCTEMPERATUREGRADIENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcTemperatureRateOfChangeMeasure {
 type: number=4;
 name: string='IFCTEMPERATURERATEOFCHANGEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcText {
 type: number=1;
@@ -13391,38 +14144,62 @@ constructor(public value: string) {}
 export class IfcThermalAdmittanceMeasure {
 type: number=4;
 name: string='IFCTHERMALADMITTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcThermalConductivityMeasure {
 type: number=4;
 name: string='IFCTHERMALCONDUCTIVITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcThermalExpansionCoefficientMeasure {
 type: number=4;
 name: string='IFCTHERMALEXPANSIONCOEFFICIENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcThermalResistanceMeasure {
 type: number=4;
 name: string='IFCTHERMALRESISTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcThermalTransmittanceMeasure {
 type: number=4;
 name: string='IFCTHERMALTRANSMITTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcThermodynamicTemperatureMeasure {
 type: number=4;
 name: string='IFCTHERMODYNAMICTEMPERATUREMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcTime {
 type: number=1;
@@ -13432,20 +14209,32 @@ constructor(public value: string) {}
 export class IfcTimeMeasure {
 type: number=4;
 name: string='IFCTIMEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcTimeStamp {
 type: number=10;
 name: string='IFCTIMESTAMP';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcTorqueMeasure {
 type: number=4;
 name: string='IFCTORQUEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcURIReference {
 type: number=1;
@@ -13455,32 +14244,52 @@ constructor(public value: string) {}
 export class IfcVaporPermeabilityMeasure {
 type: number=4;
 name: string='IFCVAPORPERMEABILITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcVolumeMeasure {
 type: number=4;
 name: string='IFCVOLUMEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcVolumetricFlowRateMeasure {
 type: number=4;
 name: string='IFCVOLUMETRICFLOWRATEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcWarpingConstantMeasure {
 type: number=4;
 name: string='IFCWARPINGCONSTANTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcWarpingMomentMeasure {
 type: number=4;
 name: string='IFCWARPINGMOMENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcActionRequestTypeEnum {static EMAIL : any =  { type:3, value:'EMAIL'}; static FAX : any =  { type:3, value:'FAX'}; static PHONE : any =  { type:3, value:'PHONE'}; static POST : any =  { type:3, value:'POST'}; static VERBAL : any =  { type:3, value:'VERBAL'}; static USERDEFINED : any =  { type:3, value:'USERDEFINED'}; static NOTDEFINED : any =  { type:3, value:'NOTDEFINED'}; }
 export class IfcActionSourceTypeEnum {static DEAD_LOAD_G : any =  { type:3, value:'DEAD_LOAD_G'}; static COMPLETION_G1 : any =  { type:3, value:'COMPLETION_G1'}; static LIVE_LOAD_Q : any =  { type:3, value:'LIVE_LOAD_Q'}; static SNOW_S : any =  { type:3, value:'SNOW_S'}; static WIND_W : any =  { type:3, value:'WIND_W'}; static PRESTRESSING_P : any =  { type:3, value:'PRESTRESSING_P'}; static SETTLEMENT_U : any =  { type:3, value:'SETTLEMENT_U'}; static TEMPERATURE_T : any =  { type:3, value:'TEMPERATURE_T'}; static EARTHQUAKE_E : any =  { type:3, value:'EARTHQUAKE_E'}; static FIRE : any =  { type:3, value:'FIRE'}; static IMPULSE : any =  { type:3, value:'IMPULSE'}; static IMPACT : any =  { type:3, value:'IMPACT'}; static TRANSPORT : any =  { type:3, value:'TRANSPORT'}; static ERECTION : any =  { type:3, value:'ERECTION'}; static PROPPING : any =  { type:3, value:'PROPPING'}; static SYSTEM_IMPERFECTION : any =  { type:3, value:'SYSTEM_IMPERFECTION'}; static SHRINKAGE : any =  { type:3, value:'SHRINKAGE'}; static CREEP : any =  { type:3, value:'CREEP'}; static LACK_OF_FIT : any =  { type:3, value:'LACK_OF_FIT'}; static BUOYANCY : any =  { type:3, value:'BUOYANCY'}; static ICE : any =  { type:3, value:'ICE'}; static CURRENT : any =  { type:3, value:'CURRENT'}; static WAVE : any =  { type:3, value:'WAVE'}; static RAIN : any =  { type:3, value:'RAIN'}; static BRAKES : any =  { type:3, value:'BRAKES'}; static USERDEFINED : any =  { type:3, value:'USERDEFINED'}; static NOTDEFINED : any =  { type:3, value:'NOTDEFINED'}; }
@@ -23029,45 +23838,73 @@ export namespace IFC4X3 {
 export class IfcAbsorbedDoseMeasure {
 type: number=4;
 name: string='IFCABSORBEDDOSEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcAccelerationMeasure {
 type: number=4;
 name: string='IFCACCELERATIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcAmountOfSubstanceMeasure {
 type: number=4;
 name: string='IFCAMOUNTOFSUBSTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcAngularVelocityMeasure {
 type: number=4;
 name: string='IFCANGULARVELOCITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcArcIndex { type: number=5; constructor(public value: Array<IfcPositiveInteger>) {} };
 export class IfcAreaDensityMeasure {
 type: number=4;
 name: string='IFCAREADENSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcAreaMeasure {
 type: number=4;
 name: string='IFCAREAMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcBinary {
 type: number=4;
 name: string='IFCBINARY';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcBoolean {
 type: number=3;
@@ -23083,28 +23920,44 @@ constructor(public value: string) {}
 export class IfcCardinalPointReference {
 type: number=10;
 name: string='IFCCARDINALPOINTREFERENCE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcComplexNumber { type: number=4; constructor(public value: Array<number>) {} };
 export class IfcCompoundPlaneAngleMeasure { type: number=10; constructor(public value: Array<number>) {} };
 export class IfcContextDependentMeasure {
 type: number=4;
 name: string='IFCCONTEXTDEPENDENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcCountMeasure {
 type: number=10;
 name: string='IFCCOUNTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcCurvatureMeasure {
 type: number=4;
 name: string='IFCCURVATUREMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcDate {
 type: number=1;
@@ -23119,14 +23972,22 @@ constructor(public value: string) {}
 export class IfcDayInMonthNumber {
 type: number=10;
 name: string='IFCDAYINMONTHNUMBER';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcDayInWeekNumber {
 type: number=10;
 name: string='IFCDAYINWEEKNUMBER';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcDescriptiveMeasure {
 type: number=1;
@@ -23136,14 +23997,22 @@ constructor(public value: string) {}
 export class IfcDimensionCount {
 type: number=10;
 name: string='IFCDIMENSIONCOUNT';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcDoseEquivalentMeasure {
 type: number=4;
 name: string='IFCDOSEEQUIVALENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcDuration {
 type: number=1;
@@ -23153,50 +24022,82 @@ constructor(public value: string) {}
 export class IfcDynamicViscosityMeasure {
 type: number=4;
 name: string='IFCDYNAMICVISCOSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricCapacitanceMeasure {
 type: number=4;
 name: string='IFCELECTRICCAPACITANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricChargeMeasure {
 type: number=4;
 name: string='IFCELECTRICCHARGEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricConductanceMeasure {
 type: number=4;
 name: string='IFCELECTRICCONDUCTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricCurrentMeasure {
 type: number=4;
 name: string='IFCELECTRICCURRENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricResistanceMeasure {
 type: number=4;
 name: string='IFCELECTRICRESISTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcElectricVoltageMeasure {
 type: number=4;
 name: string='IFCELECTRICVOLTAGEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcEnergyMeasure {
 type: number=4;
 name: string='IFCENERGYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcFontStyle {
 type: number=1;
@@ -23216,14 +24117,22 @@ constructor(public value: string) {}
 export class IfcForceMeasure {
 type: number=4;
 name: string='IFCFORCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcFrequencyMeasure {
 type: number=4;
 name: string='IFCFREQUENCYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcGloballyUniqueId {
 type: number=1;
@@ -23233,14 +24142,22 @@ constructor(public value: string) {}
 export class IfcHeatFluxDensityMeasure {
 type: number=4;
 name: string='IFCHEATFLUXDENSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcHeatingValueMeasure {
 type: number=4;
 name: string='IFCHEATINGVALUEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcIdentifier {
 type: number=1;
@@ -23250,44 +24167,72 @@ constructor(public value: string) {}
 export class IfcIlluminanceMeasure {
 type: number=4;
 name: string='IFCILLUMINANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcInductanceMeasure {
 type: number=4;
 name: string='IFCINDUCTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcInteger {
 type: number=10;
 name: string='IFCINTEGER';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcIntegerCountRateMeasure {
 type: number=10;
 name: string='IFCINTEGERCOUNTRATEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcIonConcentrationMeasure {
 type: number=4;
 name: string='IFCIONCONCENTRATIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcIsothermalMoistureCapacityMeasure {
 type: number=4;
 name: string='IFCISOTHERMALMOISTURECAPACITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcKinematicViscosityMeasure {
 type: number=4;
 name: string='IFCKINEMATICVISCOSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLabel {
 type: number=1;
@@ -23302,33 +24247,53 @@ constructor(public value: string) {}
 export class IfcLengthMeasure {
 type: number=4;
 name: string='IFCLENGTHMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLineIndex { type: number=5; constructor(public value: Array<IfcPositiveInteger>) {} };
 export class IfcLinearForceMeasure {
 type: number=4;
 name: string='IFCLINEARFORCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLinearMomentMeasure {
 type: number=4;
 name: string='IFCLINEARMOMENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLinearStiffnessMeasure {
 type: number=4;
 name: string='IFCLINEARSTIFFNESSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLinearVelocityMeasure {
 type: number=4;
 name: string='IFCLINEARVELOCITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLogical {
 type: number=3;
@@ -23339,182 +24304,302 @@ constructor(v: any) { this.value = v ; }
 export class IfcLuminousFluxMeasure {
 type: number=4;
 name: string='IFCLUMINOUSFLUXMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLuminousIntensityDistributionMeasure {
 type: number=4;
 name: string='IFCLUMINOUSINTENSITYDISTRIBUTIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcLuminousIntensityMeasure {
 type: number=4;
 name: string='IFCLUMINOUSINTENSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMagneticFluxDensityMeasure {
 type: number=4;
 name: string='IFCMAGNETICFLUXDENSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMagneticFluxMeasure {
 type: number=4;
 name: string='IFCMAGNETICFLUXMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMassDensityMeasure {
 type: number=4;
 name: string='IFCMASSDENSITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMassFlowRateMeasure {
 type: number=4;
 name: string='IFCMASSFLOWRATEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMassMeasure {
 type: number=4;
 name: string='IFCMASSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMassPerLengthMeasure {
 type: number=4;
 name: string='IFCMASSPERLENGTHMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcModulusOfElasticityMeasure {
 type: number=4;
 name: string='IFCMODULUSOFELASTICITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcModulusOfLinearSubgradeReactionMeasure {
 type: number=4;
 name: string='IFCMODULUSOFLINEARSUBGRADEREACTIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcModulusOfRotationalSubgradeReactionMeasure {
 type: number=4;
 name: string='IFCMODULUSOFROTATIONALSUBGRADEREACTIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcModulusOfSubgradeReactionMeasure {
 type: number=4;
 name: string='IFCMODULUSOFSUBGRADEREACTIONMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMoistureDiffusivityMeasure {
 type: number=4;
 name: string='IFCMOISTUREDIFFUSIVITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMolecularWeightMeasure {
 type: number=4;
 name: string='IFCMOLECULARWEIGHTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMomentOfInertiaMeasure {
 type: number=4;
 name: string='IFCMOMENTOFINERTIAMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMonetaryMeasure {
 type: number=4;
 name: string='IFCMONETARYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcMonthInYearNumber {
 type: number=10;
 name: string='IFCMONTHINYEARNUMBER';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcNonNegativeLengthMeasure {
 type: number=4;
 name: string='IFCNONNEGATIVELENGTHMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcNormalisedRatioMeasure {
 type: number=4;
 name: string='IFCNORMALISEDRATIOMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcNumericMeasure {
 type: number=4;
 name: string='IFCNUMERICMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPHMeasure {
 type: number=4;
 name: string='IFCPHMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcParameterValue {
 type: number=4;
 name: string='IFCPARAMETERVALUE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPlanarForceMeasure {
 type: number=4;
 name: string='IFCPLANARFORCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPlaneAngleMeasure {
 type: number=4;
 name: string='IFCPLANEANGLEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPositiveInteger {
 type: number=10;
 name: string='IFCPOSITIVEINTEGER';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPositiveLengthMeasure {
 type: number=4;
 name: string='IFCPOSITIVELENGTHMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPositivePlaneAngleMeasure {
 type: number=4;
 name: string='IFCPOSITIVEPLANEANGLEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPositiveRatioMeasure {
 type: number=4;
 name: string='IFCPOSITIVERATIOMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPowerMeasure {
 type: number=4;
 name: string='IFCPOWERMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPresentableText {
 type: number=1;
@@ -23524,123 +24609,203 @@ constructor(public value: string) {}
 export class IfcPressureMeasure {
 type: number=4;
 name: string='IFCPRESSUREMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcPropertySetDefinitionSet { type: number=5; constructor(public value: Array<IfcPropertySetDefinition>) {} };
 export class IfcRadioActivityMeasure {
 type: number=4;
 name: string='IFCRADIOACTIVITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcRatioMeasure {
 type: number=4;
 name: string='IFCRATIOMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcReal {
 type: number=4;
 name: string='IFCREAL';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcRotationalFrequencyMeasure {
 type: number=4;
 name: string='IFCROTATIONALFREQUENCYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcRotationalMassMeasure {
 type: number=4;
 name: string='IFCROTATIONALMASSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcRotationalStiffnessMeasure {
 type: number=4;
 name: string='IFCROTATIONALSTIFFNESSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSectionModulusMeasure {
 type: number=4;
 name: string='IFCSECTIONMODULUSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSectionalAreaIntegralMeasure {
 type: number=4;
 name: string='IFCSECTIONALAREAINTEGRALMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcShearModulusMeasure {
 type: number=4;
 name: string='IFCSHEARMODULUSMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSolidAngleMeasure {
 type: number=4;
 name: string='IFCSOLIDANGLEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSoundPowerLevelMeasure {
 type: number=4;
 name: string='IFCSOUNDPOWERLEVELMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSoundPowerMeasure {
 type: number=4;
 name: string='IFCSOUNDPOWERMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSoundPressureLevelMeasure {
 type: number=4;
 name: string='IFCSOUNDPRESSURELEVELMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSoundPressureMeasure {
 type: number=4;
 name: string='IFCSOUNDPRESSUREMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSpecificHeatCapacityMeasure {
 type: number=4;
 name: string='IFCSPECIFICHEATCAPACITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSpecularExponent {
 type: number=4;
 name: string='IFCSPECULAREXPONENT';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcSpecularRoughness {
 type: number=4;
 name: string='IFCSPECULARROUGHNESS';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcTemperatureGradientMeasure {
 type: number=4;
 name: string='IFCTEMPERATUREGRADIENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcTemperatureRateOfChangeMeasure {
 type: number=4;
 name: string='IFCTEMPERATURERATEOFCHANGEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcText {
 type: number=1;
@@ -23670,38 +24835,62 @@ constructor(public value: string) {}
 export class IfcThermalAdmittanceMeasure {
 type: number=4;
 name: string='IFCTHERMALADMITTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcThermalConductivityMeasure {
 type: number=4;
 name: string='IFCTHERMALCONDUCTIVITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcThermalExpansionCoefficientMeasure {
 type: number=4;
 name: string='IFCTHERMALEXPANSIONCOEFFICIENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcThermalResistanceMeasure {
 type: number=4;
 name: string='IFCTHERMALRESISTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcThermalTransmittanceMeasure {
 type: number=4;
 name: string='IFCTHERMALTRANSMITTANCEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcThermodynamicTemperatureMeasure {
 type: number=4;
 name: string='IFCTHERMODYNAMICTEMPERATUREMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcTime {
 type: number=1;
@@ -23711,20 +24900,32 @@ constructor(public value: string) {}
 export class IfcTimeMeasure {
 type: number=4;
 name: string='IFCTIMEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcTimeStamp {
 type: number=10;
 name: string='IFCTIMESTAMP';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcTorqueMeasure {
 type: number=4;
 name: string='IFCTORQUEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcURIReference {
 type: number=1;
@@ -23734,32 +24935,52 @@ constructor(public value: string) {}
 export class IfcVaporPermeabilityMeasure {
 type: number=4;
 name: string='IFCVAPORPERMEABILITYMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcVolumeMeasure {
 type: number=4;
 name: string='IFCVOLUMEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcVolumetricFlowRateMeasure {
 type: number=4;
 name: string='IFCVOLUMETRICFLOWRATEMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcWarpingConstantMeasure {
 type: number=4;
 name: string='IFCWARPINGCONSTANTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcWarpingMomentMeasure {
 type: number=4;
 name: string='IFCWARPINGMOMENTMEASURE';
-public value: number;
-constructor(v: any) { this.value = v === null ? v : parseFloat(v);}
+private _internalValue: any;
+private _representationValue: any;
+constructor(v: any) { this.value = v; }
+get internalValue() { return this._internalValue }
+get value(): any { return this._representationValue }
+set value(v: any) { this._representationValue = (this._internalValue=v) === null ? v : parseFloat(v); }
 }
 export class IfcActionRequestTypeEnum {static EMAIL : any =  { type:3, value:'EMAIL'}; static FAX : any =  { type:3, value:'FAX'}; static PHONE : any =  { type:3, value:'PHONE'}; static POST : any =  { type:3, value:'POST'}; static VERBAL : any =  { type:3, value:'VERBAL'}; static USERDEFINED : any =  { type:3, value:'USERDEFINED'}; static NOTDEFINED : any =  { type:3, value:'NOTDEFINED'}; }
 export class IfcActionSourceTypeEnum {static BRAKES : any =  { type:3, value:'BRAKES'}; static BUOYANCY : any =  { type:3, value:'BUOYANCY'}; static COMPLETION_G1 : any =  { type:3, value:'COMPLETION_G1'}; static CREEP : any =  { type:3, value:'CREEP'}; static CURRENT : any =  { type:3, value:'CURRENT'}; static DEAD_LOAD_G : any =  { type:3, value:'DEAD_LOAD_G'}; static EARTHQUAKE_E : any =  { type:3, value:'EARTHQUAKE_E'}; static ERECTION : any =  { type:3, value:'ERECTION'}; static FIRE : any =  { type:3, value:'FIRE'}; static ICE : any =  { type:3, value:'ICE'}; static IMPACT : any =  { type:3, value:'IMPACT'}; static IMPULSE : any =  { type:3, value:'IMPULSE'}; static LACK_OF_FIT : any =  { type:3, value:'LACK_OF_FIT'}; static LIVE_LOAD_Q : any =  { type:3, value:'LIVE_LOAD_Q'}; static PRESTRESSING_P : any =  { type:3, value:'PRESTRESSING_P'}; static PROPPING : any =  { type:3, value:'PROPPING'}; static RAIN : any =  { type:3, value:'RAIN'}; static SETTLEMENT_U : any =  { type:3, value:'SETTLEMENT_U'}; static SHRINKAGE : any =  { type:3, value:'SHRINKAGE'}; static SNOW_S : any =  { type:3, value:'SNOW_S'}; static SYSTEM_IMPERFECTION : any =  { type:3, value:'SYSTEM_IMPERFECTION'}; static TEMPERATURE_T : any =  { type:3, value:'TEMPERATURE_T'}; static TRANSPORT : any =  { type:3, value:'TRANSPORT'}; static WAVE : any =  { type:3, value:'WAVE'}; static WIND_W : any =  { type:3, value:'WIND_W'}; static USERDEFINED : any =  { type:3, value:'USERDEFINED'}; static NOTDEFINED : any =  { type:3, value:'NOTDEFINED'}; }
