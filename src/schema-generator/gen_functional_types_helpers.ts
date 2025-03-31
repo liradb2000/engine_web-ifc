@@ -164,15 +164,17 @@ export function generateClass(entity:Entity, classBuffer: Array<string>, types:T
   {
     classBuffer.push(`export class ${entity.name} extends ${entity.parent} {`);
   }
-  classBuffer.push("type:number="+crc32(entity.name.toUpperCase(),crcTable)+";");
+  classBuffer.push("static type:number="+crc32(entity.name.toUpperCase(),crcTable)+";");
+  classBuffer.push("type:number="+entity.name+".type;");
+
   
 
   entity.inverseProps.forEach((prop) => {
     let type = `${"(Handle<" + prop.type + `>|${prop.type})` }${prop.set ? "[]" : ""} ${"| null"}`;
     classBuffer.push(`${prop.name}!: ${type};`);
   });
-
-  classBuffer.push(`constructor(${entity.derivedProps.filter(i => !entity.ifcDerivedProps.includes(i.name)).map((p) => `public ${p.name}: ${(!types.some( x => x.name == p.type) || (p.primitive&&p.type!=="number")) ? ((p.primitive && p.type === "number") ? "(NumberHandle":"(Handle<" + p.type + ">") + `| ${p.type})` : p.type }${p.set ? "[]" : ""}${p.dimensions>1 ? "[]" : ""} ${p.optional ? "| null" : ""}`).join(", ")})`)
+  const _relationshipIndex:[relating:number,related:number] = [-1, -1];
+  classBuffer.push(`constructor(${entity.derivedProps.filter(i => !entity.ifcDerivedProps.includes(i.name)).map((p,argIdx) => {if(p.name.startsWith("Relating"))_relationshipIndex[0]=argIdx;else if(p.name.startsWith("Related"))_relationshipIndex[1]=argIdx; return `public ${p.name}: ${(!types.some( x => x.name == p.type) || (p.primitive&&p.type!=="number")) ? ((p.primitive && p.type === "number") ? "(NumberHandle":"(Handle<" + p.type + ">") + `| ${p.type})` : p.type }${p.set ? "[]" : ""}${p.dimensions>1 ? "[]" : ""} ${p.optional ? "| null" : ""}`}).join(", ")})`)
   classBuffer.push(`{`)
   if (!entity.parent) {
     classBuffer.push(`super();`)
@@ -182,6 +184,7 @@ export function generateClass(entity:Entity, classBuffer: Array<string>, types:T
     else classBuffer.push(`super(${nonLocalProps.map((p) => generateSuperAssignment(p,entity.ifcDerivedProps,types)).join(", ")});`)
   }
    classBuffer.push("}");
+   if(_relationshipIndex[0]+_relationshipIndex[0]>-2) classBuffer.push("static relationArgumentsIndex:[relating:number,related:number] = [" + _relationshipIndex[0]+","+_relationshipIndex[1]+"];");
    classBuffer.push("}");
 }
 
