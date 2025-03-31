@@ -104,6 +104,41 @@ void StreamMeshes(uint32_t modelID, const std::vector<uint32_t> & expressIds, em
     }
 }
 
+void StreamMeshesWithFallback(uint32_t modelID, const std::vector<uint32_t> & expressIds, emscripten::val callback, emscripten::val fallback) {
+    if (!manager.IsModelOpen(modelID)) return;    
+    auto geomLoader = manager.GetGeometryProcessor(modelID);
+    int index = 0;
+    int total = expressIds.size();
+
+    for (const auto& id : expressIds)
+    {
+        // read the mesh from IFC
+        webifc::geometry::IfcFlatMesh mesh = geomLoader->GetFlatMesh(id);
+
+        // prepare the geometry data
+        for (auto& geom : mesh.geometries)
+        {
+            auto& flatGeom = geomLoader->GetGeometry(geom.geometryExpressID);
+            flatGeom.GetVertexData();
+        }   
+
+        if (!mesh.geometries.empty())
+        {
+            // transfer control to client, geometry data is alive for the time of the callback
+            callback(mesh, index, total);
+        }
+        else
+        {
+            fallback();
+        }
+
+        // clear geometry, freeing memory, client is expected to have consumed the data
+        geomLoader->Clear();
+
+        index++;
+    }
+}
+
 void StreamMeshesWithExpressID(uint32_t modelID, emscripten::val expressIdsVal, emscripten::val callback)
 {
     std::vector<uint32_t> expressIds;
@@ -119,6 +154,23 @@ void StreamMeshesWithExpressID(uint32_t modelID, emscripten::val expressIdsVal, 
     }
     
     StreamMeshes(modelID, expressIds, callback);
+}
+
+void StreamMeshesWithExpressIDWithFallback(uint32_t modelID, emscripten::val expressIdsVal, emscripten::val callback, emscripten::val fallback)
+{
+    std::vector<uint32_t> expressIds;
+
+    uint32_t size = expressIdsVal["length"].as<uint32_t>();
+    for (size_t i=0; i < size; i++) 
+    {
+        emscripten::val expressIdVal = expressIdsVal[std::to_string(i)];
+
+        uint32_t expressId = expressIdVal.as<uint32_t>();
+
+        expressIds.push_back(expressId);
+    }
+    
+    StreamMeshesWithFallback(modelID, expressIds, callback, fallback);
 }
 
 void StreamAllMeshesWithTypes(uint32_t modelID, const std::vector<uint32_t>& types, emscripten::val callback)
@@ -863,6 +915,7 @@ EMSCRIPTEN_BINDINGS(my_module) {
     emscripten::function("GetFlatMesh", &GetFlatMesh);
     emscripten::function("GetCoordinationMatrix", &GetCoordinationMatrix);
     emscripten::function("StreamMeshes", &StreamMeshesWithExpressID);
+    emscripten::function("StreamMeshesWithFallback", &StreamMeshesWithExpressIDWithFallback);
     emscripten::function("StreamAllMeshes", &StreamAllMeshes);
     emscripten::function("StreamAllMeshesWithTypes", &StreamAllMeshesWithTypesVal);
     emscripten::function("GetLine", &GetLine);
